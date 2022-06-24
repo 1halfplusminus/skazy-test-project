@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { Reservation, Prisma, Room } from '@prisma/client';
 import { map, pipe, flatten, uniq } from 'lodash/fp';
-import { isMonday, eachDayOfInterval } from 'date-fns';
+import { isMonday, eachDayOfInterval, addDays } from 'date-fns';
 import { ReservationAvailability } from './reservation.model';
 import { parseDate } from './utils';
 
@@ -20,7 +20,7 @@ export class ReservationService {
   private validateReservationDate(reservation: Prisma.ReservationCreateInput) {
     const { leavingDate, arrivalDate } = parseDate(reservation);
     const days = eachDayOfInterval({
-      start: arrivalDate,
+      start: addDays(arrivalDate, 1),
       end: leavingDate,
     });
     return !!days.find((d) => isMonday(d));
