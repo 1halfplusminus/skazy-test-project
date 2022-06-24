@@ -46,7 +46,7 @@ export default function DateRangePicker({
               const newEndDate: Date = isBefore(endDate, newStartDate)
                 ? addDays(newStartDate, 1)
                 : endDate;
-              onSelect(startOfDay(newStartDate), endOfDay(newEndDate));
+              onSelect(endOfDay(newStartDate), endOfDay(newEndDate));
             }
           }}
           renderInput={(params) => <TextField {...params} />}
@@ -59,7 +59,7 @@ export default function DateRangePicker({
           value={endDate}
           onChange={(newEndDate) => {
             if (newEndDate) {
-              onSelect(startOfDay(startDate), endOfDay(newEndDate));
+              onSelect(endOfDay(startDate), endOfDay(newEndDate));
             }
           }}
           renderInput={(params) => <TextField {...params} />}

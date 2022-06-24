@@ -36,7 +36,6 @@ export const ConnectedReservationForm = () => {
           message: '',
           canSubmit: false,
         });
-        console.log('onChange');
       }}
       price={data?.checkAvailability.price}
       available={available.available}
@@ -44,8 +43,8 @@ export const ConnectedReservationForm = () => {
       onSubmit={async (v) => {
         const r = await makeReservation({
           variables: {
-            arrivalDate: v.startDate.toString(),
-            leavingDate: v.endDate.toString(),
+            arrivalDate: v.startDate.toUTCString(),
+            leavingDate: v.endDate.toUTCString(),
             email: v.email,
             nbChamber: v.nbChamber,
           },
@@ -59,8 +58,8 @@ export const ConnectedReservationForm = () => {
       }}
       onCheck={async (v) => {
         const r = await refetch({
-          arrivalDate: v.startDate.toString(),
-          leavingDate: v.endDate.toString(),
+          arrivalDate: v.startDate.toUTCString(),
+          leavingDate: v.endDate.toUTCString(),
           email: v.email,
           nbChamber: v.nbChamber,
         });
