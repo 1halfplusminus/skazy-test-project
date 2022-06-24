@@ -20,12 +20,12 @@ export const ConnectedReservationForm = () => {
     CreateReservationMutation,
     CreateReservationMutationVariables
   >(MUTATION_MAKE_RESERVATION);
-  const { loading, data, refetch } = useQuery<
-    Query,
-    QueryCheckAvailabilityArgs
-  >(QUERY_CHECK_AVAILABILITY, {
-    fetchPolicy: 'no-cache',
-  });
+  const { data, refetch } = useQuery<Query, QueryCheckAvailabilityArgs>(
+    QUERY_CHECK_AVAILABILITY,
+    {
+      fetchPolicy: 'no-cache',
+    }
+  );
 
   return (
     <ReservationForm

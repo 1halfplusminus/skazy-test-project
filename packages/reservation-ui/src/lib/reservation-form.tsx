@@ -230,9 +230,19 @@ export function ReservationForm({
       </Row>
       {available && formik.submitCount > 1 ? (
         <Row>
-          <h2>
+          <h2
+            css={css`
+              ${tw`text-white`}
+            `}
+          >
             Prix de votre réservation: &nbsp;
-            <NumberFormat>{price}</NumberFormat>
+            <span
+              css={css`
+                ${tw`text-red-400`}
+              `}
+            >
+              <NumberFormat>{price}</NumberFormat>
+            </span>
           </h2>
         </Row>
       ) : null}

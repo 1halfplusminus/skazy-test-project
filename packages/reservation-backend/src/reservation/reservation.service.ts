@@ -53,7 +53,7 @@ export class ReservationService {
     }
     if (reservation.nbChamber > availableRooms.length) {
       return {
-        message: `Plus que ${availableRooms.length} disponible`,
+        message: `Plus que ${availableRooms.length} de disponible`,
         available: false,
         nbChamber,
         arrivalDate,

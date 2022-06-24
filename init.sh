@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 cd ./packages/reservation-backend
 npx prisma generate
 npx prisma migrate dev --schema ./prisma/schema.prisma
