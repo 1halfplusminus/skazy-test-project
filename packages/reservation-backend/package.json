@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "prisma": {
+    "seed": "ts-node --esm prisma/seed",
+    "migrate": "prisma migrate dev --schema ./prisma/schema.prisma"
+  }
+}

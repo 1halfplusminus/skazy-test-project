@@ -1,0 +1,20 @@
+schema: http://localhost:3333/graphql
+documents: './queries/**/*.tsx'
+generates:
+  ./graphql/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-resolvers
+      - typescript-react-apollo
+    config:
+      useIndexSignature: true
+      noNamespaces: true
+      withHooks: true
+      withComponent: false
+      withHOC: false
+      withMutationFn: false
+      skipTypename: true
+      avoidOptionals: false
+      scalars:
+        DateTime: string

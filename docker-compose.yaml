@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    # restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: user
+    ports:
+      - 5432:5432
+  # adminer:
+  #   image: adminer
+  #   # restart: always
+  #   ports:
+  #     - 8080:8080
+  app:
+    build: ./ 
+    ports:
+      - 4200:4200
+      - 3333:3333
+    volumes:
+      - ./packages/reservation-backend/docker.env:/usr/src/app/packages/reservation-backend/.env

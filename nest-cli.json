@@ -1,0 +1,12 @@
+{
+  "monorepo": true,
+  "root": "apps/skazy",
+  "sourceRoot": "apps/skazy/src",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/skazy/tsconfig.app.json"
+  },
+  "projects": {
+   
+  }
+}

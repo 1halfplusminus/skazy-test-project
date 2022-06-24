@@ -1,5 +1,12 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
-  "projects": {}
+  "projects": {
+    "reservation-backend": "packages/reservation-backend",
+    "reservation-frontend": "packages/reservation-frontend",
+    "reservation-frontend-e2e": "packages/reservation-frontend-e2e",
+    "reservation-shared": "packages/reservation-shared",
+    "reservation-ui": "packages/reservation-ui",
+    "reservation-ui-e2e": "packages/reservation-ui-e2e"
+  }
 }
