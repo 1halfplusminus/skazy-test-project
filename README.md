@@ -14,7 +14,7 @@ docker-compose up
 
 npm install
 chmod +x ./init.sh
-docker-compose up db -d
+docker-compose up  -d db
 ./init.sh
 
 ```
