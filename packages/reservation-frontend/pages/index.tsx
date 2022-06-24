@@ -4,6 +4,7 @@ import { css } from '@emotion/react';
 import tw from 'twin.macro';
 import { House, Icon } from '@skazy/reservation-ui';
 import { Canvas } from '@react-three/fiber';
+import { DynamicHouse } from '../../reservation-ui/src/lib/gltf-house/dynamic-house';
 const StyledPage = styled.div``;
 
 export function Index() {
@@ -44,7 +45,7 @@ export function Index() {
             id="hero"
             className="rounded"
             css={css`
-              ${tw`bg-gray-700`}
+              ${tw`bg-gray-700 mb-6`}
             `}
           >
             <div className="text-container">
@@ -101,7 +102,8 @@ export function Index() {
               `}
             >
               <Canvas>
-                <House />
+                <ambientLight />
+                <DynamicHouse />
               </Canvas>
             </div>
           </div>

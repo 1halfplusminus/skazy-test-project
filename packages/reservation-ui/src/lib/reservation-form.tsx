@@ -228,7 +228,7 @@ export function ReservationForm({
           value={formik.values.email}
         />
       </Row>
-      {available && formik.submitCount > 1 ? (
+      {canSubmit ? (
         <Row>
           <h2
             css={css`

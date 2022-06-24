@@ -7,7 +7,7 @@ title: Episode 86 - CYBER PUNK ROOM
 */
 
 import * as THREE from 'three';
-import { useRef } from 'react';
+import { Suspense, useRef } from 'react';
 import { useGLTF, Environment, PresentationControls } from '@react-three/drei';
 import { GLTF } from 'three-stdlib';
 
@@ -22,38 +22,40 @@ type GLTFResult = GLTF & {
 
 export function House({ ...props }: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>(null);
+  useGLTF.preload('/scene.gltf');
   const { nodes, materials } = useGLTF('/scene.gltf') as GLTFResult;
   return (
-    <PresentationControls
-      global={false} // Spin globally or by dragging the model
-      cursor={true} // Whether to toggle cursor style on drag
-      snap={false} // Snap-back to center (can also be a spring config)
-      speed={1} // Speed factor
-      zoom={1} // Zoom factor when half the polar-max is reached
-      rotation={[70, 20, 0]} // Default rotation
-      polar={[0, Math.PI / 2]} // Vertical limits
-      azimuth={[-Infinity, Infinity]} // Horizontal limits
-      config={{ mass: 1, tension: 170, friction: 26 }} // Spring config
-    >
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <Environment preset="sunset" />
-      <group scale={1} ref={group} {...props} dispose={null}>
-        <group rotation={[-Math.PI / 2, 0, 0]}>
-          <group rotation={[Math.PI / 2, 0, 0]}>
-            <group rotation={[-Math.PI / 2, 0, 0]}>
-              <mesh
-                position={[0, 0, 0]}
-                geometry={nodes.Cyber_Punk_Room_Material_0.geometry}
-                material={materials.Material}
-              />
+    <Suspense fallback={null}>
+      <PresentationControls
+        global={false} // Spin globally or by dragging the model
+        cursor={true} // Whether to toggle cursor style on drag
+        snap={false} // Snap-back to center (can also be a spring config)
+        speed={1} // Speed factor
+        zoom={1} // Zoom factor when half the polar-max is reached
+        rotation={[70, 20, 0]} // Default rotation
+        polar={[0, Math.PI / 2]} // Vertical limits
+        azimuth={[-Infinity, Infinity]} // Horizontal limits
+        config={{ mass: 1, tension: 170, friction: 26 }} // Spring config
+      >
+        <group scale={1} ref={group} {...props} dispose={null}>
+          <ambientLight />
+          <pointLight position={[10, 10, 10]} />
+          <Environment preset="sunset" />
+          <group rotation={[-Math.PI / 2, 0, 0]}>
+            <group rotation={[Math.PI / 2, 0, 0]}>
+              <group rotation={[-Math.PI / 2, 0, 0]}>
+                <Suspense fallback={null}>
+                  <mesh
+                    position={[0, 0, 0]}
+                    geometry={nodes.Cyber_Punk_Room_Material_0.geometry}
+                    material={materials.Material}
+                  />
+                </Suspense>
+              </group>
             </group>
           </group>
         </group>
-      </group>
-    </PresentationControls>
+      </PresentationControls>
+    </Suspense>
   );
-}
-if (typeof window !== 'undefined') {
-  useGLTF.preload('/scene.gltf');
 }
