@@ -190,7 +190,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
           mixBlendMode: 'normal',
           paintOrder: 'markers fill stroke',
           shapeRendering: 'auto',
-          solidColor: '#000',
+          // solidColor: '#000',
           imageRendering: 'auto',
         }}
         d="M-1233.64-12.428s-6.632-9.373-18.583-7.38c-15.99 2.664-28.29 26.227-33.018 38.633-6.48 17.005-11.28 95.175 4.093 59.485 4.57-10.61 32.207-6.347 36.8-1.913"
@@ -207,7 +207,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
           mixBlendMode: 'normal',
           paintOrder: 'markers fill stroke',
           shapeRendering: 'auto',
-          solidColor: '#000',
+          // solidColor: '#000',
           imageRendering: 'auto',
         }}
         d="M-1233.64-13.155s-6.632-9.373-18.583-7.38c-15.99 2.664-29.044 25.924-33.77 38.784-6.61 17.987-11.443 97.459 5.843 60.934 4.51-9.529 28.581-6.352 34.265-2.81"
@@ -219,7 +219,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
       <g clipRule="evenodd" id="g73">
         <path
           style={{
-            imageRendering: 'optimizeQuality',
+            // imageRendering: 'auto',
             shapeRendering: 'geometricPrecision',
             fill: 'url(#k)',
           }}
@@ -230,7 +230,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
         />
         <path
           style={{
-            imageRendering: 'optimizeQuality',
+            imageRendering: 'auto',
             shapeRendering: 'geometricPrecision',
             fill: '#d9dada',
           }}
@@ -241,7 +241,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
         />
         <path
           style={{
-            imageRendering: 'optimizeQuality',
+            imageRendering: 'auto',
             shapeRendering: 'geometricPrecision',
             stroke: '#000',
             strokeOpacity: 1,
@@ -256,7 +256,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
         />
         <path
           style={{
-            imageRendering: 'optimizeQuality',
+            imageRendering: 'auto',
             shapeRendering: 'geometricPrecision',
             fill: '#bd2221',
           }}
@@ -268,7 +268,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
         />
         <ellipse
           style={{
-            imageRendering: 'optimizeQuality',
+            imageRendering: 'auto',
             shapeRendering: 'geometricPrecision',
             fill: '#e31e24',
           }}
@@ -328,7 +328,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
             isolation: 'auto',
             mixBlendMode: 'normal',
             shapeRendering: 'auto',
-            solidColor: '#000',
+            // solidColor: '#000',
             imageRendering: 'auto',
           }}
           strokeWidth={0.3}
@@ -374,7 +374,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
           mixBlendMode: 'normal',
           paintOrder: 'markers fill stroke',
           shapeRendering: 'auto',
-          solidColor: '#000',
+          // solidColor: '#000',
           imageRendering: 'auto',
         }}
         fill="#986113"
@@ -392,7 +392,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
             mixBlendMode: 'normal',
             paintOrder: 'markers fill stroke',
             shapeRendering: 'auto',
-            solidColor: '#000',
+            // solidColor: '#000',
             imageRendering: 'auto',
           }}
           fill="#636365"
@@ -406,7 +406,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
             mixBlendMode: 'normal',
             paintOrder: 'markers fill stroke',
             shapeRendering: 'auto',
-            solidColor: '#000',
+            // solidColor: '#000',
             imageRendering: 'auto',
           }}
           d="M215.295 362.701a4.783 4.783 0 0 1-.076.002h.054a.428.428 0 0 1 .022-.002zm-32.977.004c-.378.003-.755.02-1.13.053a4.783 4.783 0 0 1-.073.006c-7.88.558-13.222 5.123-13.222 13.926 0 8.556 6.397 14.853 14.418 14.853 2.73-.004 5.07.057 6.76-.203 1.691-.26 2.602-.636 3.581-1.65a4.783 4.783 0 0 1 3.442-1.461h5.24a4.783 4.783 0 0 1 3.441 1.46c.983 1.018 1.896 1.397 3.592 1.657 1.696.26 4.04.197 6.777.197 8.021 0 14.419-6.27 14.418-14.974 0-8.82-5.677-13.554-13.904-13.834a4.783 4.783 0 0 1-.156-.008c-.143-.01-.286-.015-.428-.02-.017 0-.034 0-.05-.002h-32.592c.255 0 .233.002-.067.002a4.783 4.783 0 0 1-.047-.002z"
@@ -421,7 +421,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
             mixBlendMode: 'normal',
             paintOrder: 'markers fill stroke',
             shapeRendering: 'auto',
-            solidColor: '#000',
+            // solidColor: '#000',
             imageRendering: 'auto',
           }}
           d="m215.295 362.701-.076.002h.054a.428.428 0 0 1 .022-.002zm-32.977.004c-.378.003-.755.02-1.13.053l-.073.006c-7.88.558-13.222 5.123-13.222 13.926 0 8.556 6.397 14.853 14.418 14.853 1.645-.002 3.124.01 4.43-.03 15.153-6.325 4.387-21.357 41.015-22.405-2.296-4.019-6.626-6.187-12.098-6.373-.052-.002-.104-.004-.156-.008-.143-.01-.286-.015-.428-.02-.017 0-.034 0-.05-.002h-32.592c.255 0 .233.002-.067.002-.015 0-.031 0-.047-.002z"
@@ -436,7 +436,7 @@ export const Icon = (props: SVGProps<SVGSVGElement>) => (
             mixBlendMode: 'normal',
             paintOrder: 'markers fill stroke',
             shapeRendering: 'auto',
-            solidColor: '#000',
+            // solidColor: '#000',
             imageRendering: 'auto',
           }}
           d="M182.307 359.56c-.464.004-.927.025-1.389.065a1.638 1.638 0 0 1-.025.002c-9.223.654-16.145 6.79-16.145 17.063 0 10.188 7.843 17.997 17.563 17.998 2.644-.004 5.117.087 7.238-.239 2.12-.325 3.844-1 5.367-2.576a1.638 1.638 0 0 1 1.178-.5h5.24a1.638 1.638 0 0 1 1.178.5c1.526 1.58 3.253 2.256 5.379 2.582 2.125.326 4.604.232 7.254.233 9.72 0 17.562-7.8 17.562-18.12 0-10.359-7.334-16.649-16.943-16.976a1.638 1.638 0 0 1-.053-.002 17.733 17.733 0 0 0-.559-.03h-.013a1.638 1.638 0 0 1-.065.003 1.01 1.01 0 0 1-.05-.002h-32.592a.928.928 0 0 1-.067.002 1.638 1.638 0 0 1-.045-.002h-.013z"

@@ -1,7 +1,7 @@
 {
-  "type": "module",
-  "prisma": {
-    "seed": "ts-node --esm prisma/seed",
-    "migrate": "prisma migrate dev --schema ./prisma/schema.prisma"
+  "scripts": {
+    "seed": "ts-node --esm src/prisma/seed",
+    "migrate": "prisma migrate dev --schema ./src/prisma/schema.prisma",
+    "generate": "prisma generate --schema ./src/prisma/schema.prisma"
   }
 }

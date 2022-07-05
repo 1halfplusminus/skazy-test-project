@@ -8,10 +8,22 @@ services:
       POSTGRES_USER: user
     ports:
       - 5432:5432
-  app:
-    build: ./ 
+  backend:
+    build: 
+      dockerfile: ./packages/reservation-backend/Dockerfile
+      context: ./
+    env_file:
+      - ./packages/reservation-backend/docker.env
+    environment:
+      NODE_ENV: 'production'
     ports:
-      - 4200:4200
+      # - 4200:4200
       - 3333:3333
     volumes:
       - ./packages/reservation-backend/docker.env:/usr/src/app/packages/reservation-backend/.env
+  frontend:
+    environment:
+      NODE_ENV: 'production'
+    image: reservation-frontend:lastest
+    ports:
+      - 3000:3000

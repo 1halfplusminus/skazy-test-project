@@ -7,10 +7,14 @@
       "executor": "@nrwl/node:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "generatePackageJson": true,
         "outputPath": "dist/packages/reservation-backend",
         "main": "packages/reservation-backend/src/main.ts",
         "tsConfig": "packages/reservation-backend/tsconfig.app.json",
-        "assets": ["packages/reservation-backend/src/assets"]
+        "assets": [
+          "packages/reservation-backend/src/assets",
+          "packages/reservation-backend/src/prisma"
+        ]
       },
       "configurations": {
         "production": {
@@ -45,6 +49,16 @@
       "options": {
         "jestConfig": "packages/reservation-backend/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "docker": {
+      "executor": "@nx-tools/nx-docker:build",
+      "options": {
+        "push": true,
+        "tags": [
+          // "reservation-backend:latest",
+          "registry.gitlab.com/1halfplusminus/skazy-test-project:backend-latest"
+        ]
       }
     }
   },

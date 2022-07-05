@@ -1,0 +1,68 @@
+image: node:latest
+.distributed:
+  interruptible: true
+  only:
+    - main
+    - merge_requests
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  before_script:
+    - npm ci --cache .npm --prefer-offline
+    - NX_HEAD=$CI_COMMIT_SHA
+    - NX_BASE=${CI_MERGE_REQUEST_DIFF_BASE_SHA:-$CI_COMMIT_BEFORE_SHA}
+  artifacts:
+    paths:
+      - node_modules/.cache/nx
+stages:
+  - build
+  - test
+  - release
+# test-code-job:
+#   stage: test
+#   script:
+#     - 'npx nx run-many --target=test --all=true --parallel=true'
+build-nx:
+  stage: build
+  extends: .distributed
+  artifacts:
+    untracked: true
+    exclude:
+      - node_modules/
+    expire_in: 10 mins
+  script:
+    - 'npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=build --parallel=3'
+build-image:
+  stage: build
+  image: gperdomor/nx-docker:18.4.0-alpine
+  extends: .distributed
+  variables:
+    GIT_DEPTH: '0'
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+  needs:
+    - build-nx
+  services:
+    - docker:18-dind
+  script:
+    # get node app version from package.json for use in tagging docker image
+    # login to docker
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    # # build and tag docker image
+    # - docker build -t $CI_REGISTRY_IMAGE:$VERSION -t $CI_REGISTRY_IMAGE:latest .
+    # # publish finished image
+    # - docker push $CI_REGISTRY_IMAGE:$VERSION
+    # - docker push $CI_REGISTRY_IMAGE:latest
+    # # - docker save -o $CI_REGISTRY_IMAGE.tar $CI_REGISTRY_IMAGE:latest
+    - docker run --privileged --rm tonistiigi/binfmt --install all
+
+    # - npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=build --parallel=3
+    - npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=docker --parallel=3
+# publish:
+#   stage: release
+#   extends: .distributed
+#   script:
+#     - npx semantic-release

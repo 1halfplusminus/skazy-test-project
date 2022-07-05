@@ -56,6 +56,16 @@
           "packages/reservation-frontend/**/*.{ts,tsx,js,jsx}"
         ]
       }
+    },
+    "docker": {
+      "executor": "@nx-tools/nx-docker:build",
+      "options": {
+        "push": true,
+        "tags": [
+          // "reservation-frontend:latest",
+          "registry.gitlab.com/1halfplusminus/skazy-test-project:frontend-latest"
+        ]
+      }
     }
   },
   "tags": []
